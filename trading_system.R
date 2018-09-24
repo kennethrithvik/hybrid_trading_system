@@ -1,0 +1,7 @@
+library("TTR")
+library("forecast")
+library(useful)
+library(readr)
+FinancialData <- read_csv("data/FinancialData.csv")
+financial_series<-ts(FinancialData,frequency =52)
+FinancialData["SG/P"]<-(1/FinancialData$`P/D`)/(1/FinancialData$`SG/D`)
